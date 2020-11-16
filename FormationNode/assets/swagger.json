@@ -1,0 +1,139 @@
+{
+    "info": {
+      "title": "API rest doc",
+      "version": "1.0.0",
+      "license": {
+        "name": "ISC"
+      },
+      "description": "API rest utilisateurs"
+    },
+    "basePath": "/api/v1/",
+    "tags": [
+        {
+            "name": "member",
+            "description": "methodes permettant de gérer les utilisateurs"
+        }
+    ],
+    "paths": {
+      "members": {
+        "get": {
+            "tags":["member"],
+          "summary": "members",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters":  [
+            {
+              "name": "max",
+              "in": "query",
+              "required": false
+            }
+          ],
+          "responses": {
+            "200": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "example": "success"
+                  },
+                  "result": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "number"
+                        },
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name"
+                      ]
+                    },
+                    "example": [
+                      {
+                        "id": 3,
+                        "name": "Alaaeddine"
+                      }
+                    ]
+                  }
+                }
+              }
+            },
+            "304": {}
+          },
+          "produces": [
+            "application/json"
+          ]
+        },
+        "post": {
+            "tags":["member"],
+          "summary": "members",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "body",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "members/{id}": {
+        "get": {
+            "tags":["member"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        },
+        "put": {
+            "tags":["member"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        },
+        "delete": {
+            "tags":["member"],
+          "summary": "members/{id}",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true
+            }
+          ],
+          "responses": {}
+        }
+      }
+    },
+    "swagger": "2.0"
+  }
